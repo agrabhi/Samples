@@ -13,7 +13,9 @@ namespace SampleWebApp
     {
         static List<Product> products = new List<Product>
         {
-            new Product() {Id  = "1" }
+            new Product() {Id  = "1" },
+            new Oil() {Id  = "1", Price = 22 }
+
         };
 
         // GET: api/Products
