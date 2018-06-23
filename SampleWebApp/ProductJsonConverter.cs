@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,9 @@ namespace SampleWebApp
             //TODO: read the raw JSON object through jObject to identify the type
             //e.g. here I'm reading a 'typename' property:
 
-            if (IsTypeOf(jObject, typeof(Oil)))
+            JObject oilJObject = GetJObject(new Oil());
+
+            if (IsTypeOf(jObject, oilJObject))
             { 
                 return new Oil();
             }
@@ -23,11 +26,23 @@ namespace SampleWebApp
             //now the base class' code will populate the returned object.
         }
 
-        private bool IsTypeOf(JObject jObject, Type type)
+        private JObject GetJObject(Product obj)
         {
-            foreach (var prop in type.GetProperties())
+            var jsonSerializerSettings = new JsonSerializerSettings
             {
-                if (jObject[prop.Name] == null)
+                ContractResolver = new CamelCasePropertyNamesContractResolver()
+            };
+
+            var interimStr = JsonConvert.SerializeObject(obj, jsonSerializerSettings);
+
+            return JObject.Parse(interimStr);            
+        }
+
+        private bool IsTypeOf(JObject jObject, JObject typeJObject)
+        {
+            foreach (var kv in typeJObject)
+            {
+                if (jObject[kv.Key] == null)
                 {
                     return false;
                 }
