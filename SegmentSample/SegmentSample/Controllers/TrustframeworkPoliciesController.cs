@@ -43,6 +43,5 @@ namespace SegmentSample.Controllers
             return StatusCode(HttpStatusCode.OK);
         }
 
-
     }
 }
