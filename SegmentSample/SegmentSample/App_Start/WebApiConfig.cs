@@ -51,8 +51,8 @@ namespace SegmentSample
         private static void AddRestoreAction(ODataConventionModelBuilder builder)
         {
             var action = builder.EntityType<TrustframeworkPolicy>()
-                .Action("Restore");
-            action.Parameter<string>("version");
+                .Action("Restore")
+                .Parameter<string>("version");
         }
     }
 }

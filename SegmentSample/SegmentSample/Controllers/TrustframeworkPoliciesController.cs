@@ -11,6 +11,7 @@ using System.Web.Http;
 namespace SegmentSample.Controllers
 {
     [ODataRoutePrefix("trustframework/Policies")]
+    [ODataRoutePrefix("trustframeworkPolicies")]
     public class TrustframeworkPoliciesController : ODataController
     {
         List<TrustframeworkPolicy> policies = new List<TrustframeworkPolicy>()
@@ -36,6 +37,7 @@ namespace SegmentSample.Controllers
         }
 
         [HttpPost]
+        [ODataRoute("({id})/restore")]
         public IHttpActionResult Restore([FromODataUri] string id, ODataActionParameters odataparams)
         {
             return StatusCode(HttpStatusCode.OK);
