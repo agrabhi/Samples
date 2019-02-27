@@ -7,9 +7,9 @@ namespace SegmentSample.Models
 {
     public class Trustframework
     {
-        public string Id;
+        public string Id { get; set; }
 
-        public List<TrustframeworkPolicy> Policies;
+        public List<TrustframeworkPolicy> Policies { get; set; }
 
     }
 }

@@ -4,6 +4,7 @@ using Microsoft.OData.Edm;
 using SegmentSample.Models;
 using System;
 using System.Collections.Generic;
+using Microsoft.OData;
 using System.Linq;
 using System.Web.Http;
 
@@ -24,17 +25,24 @@ namespace SegmentSample
                 defaults: new { id = RouteParameter.Optional }
             );
 
+            config.SetUrlKeyDelimiter(ODataUrlKeyDelimiter.Slash);
+            config.Expand();
+
             config.MapODataServiceRoute(
                 routeName: "ODataRoute",
-                routePrefix: null,
+                routePrefix: "odata",
                 model: GetEdmModel());
         }
 
         public static IEdmModel GetEdmModel()
         {
             ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
+                        
+            builder.Singleton<Trustframework>("trustframework");
             builder.EntitySet<TrustframeworkPolicy>("trustframeworkPolicies");
-            builder.Singleton<Trustframework>("trustframework");            
+
+            builder.EnableLowerCamelCase();
+
             return builder.GetEdmModel();
         }
     }

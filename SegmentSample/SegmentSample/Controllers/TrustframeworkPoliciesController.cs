@@ -18,6 +18,7 @@ namespace SegmentSample.Controllers
             new TrustframeworkPolicy(){ Id = "2" },
         };
 
+        [ODataRoute]
         public IQueryable<TrustframeworkPolicy> GetPolicies()
         {
             return policies.AsQueryable();
