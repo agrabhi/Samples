@@ -24,5 +24,23 @@ namespace SegmentSample.Controllers
         {
             return policies.AsQueryable();
         }
+
+        [HttpGet]
+        [EnableQuery]
+        [ODataRoute("({id})")]
+        public SingleResult<TrustframeworkPolicy> GetPolicy(string id)
+        {
+            TrustframeworkPolicy trustframeworkPolicy = new TrustframeworkPolicy() { Id = id };
+
+            return SingleResult.Create(new[] { trustframeworkPolicy }.AsQueryable());
+        }
+
+        [HttpPost]
+        public IHttpActionResult Restore([FromODataUri] string id, ODataActionParameters odataparams)
+        {
+            return StatusCode(HttpStatusCode.OK);
+        }
+
+
     }
 }

@@ -41,9 +41,18 @@ namespace SegmentSample
             builder.Singleton<Trustframework>("trustframework");
             builder.EntitySet<TrustframeworkPolicy>("trustframeworkPolicies");
 
+            AddRestoreAction(builder);
+
             builder.EnableLowerCamelCase();
 
             return builder.GetEdmModel();
+        }
+
+        private static void AddRestoreAction(ODataConventionModelBuilder builder)
+        {
+            var action = builder.EntityType<TrustframeworkPolicy>()
+                .Action("Restore");
+            action.Parameter<string>("version");
         }
     }
 }
