@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNet.OData.Builder;
+using Microsoft.AspNet.OData.Extensions;
+using Microsoft.OData.Edm;
+using SegmentSample.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -19,6 +23,19 @@ namespace SegmentSample
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.MapODataServiceRoute(
+                routeName: "ODataRoute",
+                routePrefix: null,
+                model: GetEdmModel());
+        }
+
+        public static IEdmModel GetEdmModel()
+        {
+            ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
+            builder.EntitySet<TrustframeworkPolicy>("trustframeworkPolicies");
+            builder.Singleton<Trustframework>("trustframework");            
+            return builder.GetEdmModel();
         }
     }
 }
