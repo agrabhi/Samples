@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.OData.Routing;
+﻿using Microsoft.AspNet.OData;
+using Microsoft.AspNet.OData.Routing;
 using SegmentSample.Models;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Web.Http;
 namespace SegmentSample.Controllers
 {
     [ODataRoutePrefix("trustframework/Policies")]
-    public class TrustframeworkPoliciesController : ApiController
+    public class TrustframeworkPoliciesController : ODataController
     {
         List<TrustframeworkPolicy> policies = new List<TrustframeworkPolicy>()
         {
