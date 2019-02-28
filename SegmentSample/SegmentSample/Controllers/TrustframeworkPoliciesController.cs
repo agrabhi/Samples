@@ -38,9 +38,9 @@ namespace SegmentSample.Controllers
 
         [HttpPost]
         [ODataRoute("({id})/restore")]
-        public IHttpActionResult Restore([FromODataUri] string id, ODataActionParameters odataparams)
+        public IHttpActionResult Restore(string id)
         {
-            return StatusCode(HttpStatusCode.OK);
+            return this.Ok(id);
         }
 
     }
