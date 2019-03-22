@@ -11,7 +11,6 @@ using System.Web.Http;
 namespace SegmentSample.Controllers
 {
     [ODataRoutePrefix("trustframework/Policies")]
-    [ODataRoutePrefix("trustframeworkPolicies")]
     public class TrustframeworkPoliciesController : ODataController
     {
         List<TrustframeworkPolicy> policies = new List<TrustframeworkPolicy>()
