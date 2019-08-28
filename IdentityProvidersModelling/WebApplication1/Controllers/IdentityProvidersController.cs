@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.OData;
+using Microsoft.AspNet.OData.Routing;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
-    [RoutePrefix("identityProviders")]
+    [ODataRoutePrefix("identityProviders")]
     public class IdentityProvidersController : ODataController
     {
         static List<IdentityProvider> idps = new List<IdentityProvider>()
@@ -22,12 +23,25 @@ namespace WebApplication1.Controllers
 
         [EnableQuery]
         [HttpGet]
-        [Route]
-        public IQueryable<IdentityProvider> ListIdentityProviders()
+        [ODataRoute]
+        public IQueryable<IdentityProvider> GetIdentityProviders()
         {
             return idps.AsQueryable();
         }
 
+        [HttpPost]
+        [ODataRoute]
+        public IdentityProvider CreateIdentityProvider(IdentityProvider idp)
+        {
+            if (idp.Type.Contains("LocalAccount"))
+            {
+                idp = new LocalIdentityProvider() { Id = idp.Id, Name = idp.Name, Type = idp.Type };
+            }
+
+            idp.Type = idp.GetType().FullName;
+            idps.Add(idp);
+            return idp;
+        }
 
 
     }
