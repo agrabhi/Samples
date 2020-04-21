@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WebApiInheritance;
+
 
 namespace SampleWebApp
 {
@@ -13,10 +15,17 @@ namespace SampleWebApp
     {
         static List<Product> products = new List<Product>
         {
-            new Product() {Id  = "1" },
+            new Product() {Id  = "1", Config = new ProductConfig() },
             new Oil() {Id  = "1", Price = 22 }
 
         };
+
+        // GET: api/Products
+        [HttpPatch]
+        public IEnumerable<Product> Patch(Delta<Product> delta)
+        {
+            
+        }
 
         // GET: api/Products
         [HttpGet]
