@@ -26,7 +26,7 @@ namespace WebApplication1
             // New code:
             var builder = new ODataConventionModelBuilder();
             builder.EnableLowerCamelCase();
-            builder.Namespace = "Microsoft.Cpim.Api.DataModels";
+            builder.Namespace = "Microsoft.Graph";
 
             builder.EntitySet<IdentityProvider>("identityProviders");
             builder.EntitySet<UserProfileAttribute>("userProfileAttributes");

@@ -40,15 +40,20 @@ namespace WebApplication1.Controllers
 
         [HttpPost]
         [ODataRoute]
-        public UserProfileAttribute Create(CustomUserProfileAttribute up)
+        public UserProfileAttribute Create([FromBody] CustomUserProfileAttribute up)
         {
+            if (up == null)
+            {
+                throw new Exception("NULL");
+            }
+
             userProfileAttributes.Add(up);
             return up;
         }
 
         [HttpPatch]
         [ODataRoute("({id})")]
-        public UserProfileAttribute Patch(string id, Delta<UserProfileAttribute> up)
+        public UserProfileAttribute Patch(string id, [FromBody] Delta<UserProfileAttribute> up)
         {
             var u = userProfileAttributes.Where(x => x.Id.Equals(id)).Single();
 
