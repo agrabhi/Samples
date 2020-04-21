@@ -29,6 +29,7 @@ namespace WebApplication1
             builder.Namespace = "Microsoft.Cpim.Api.DataModels";
 
             builder.EntitySet<IdentityProvider>("identityProviders");
+            builder.EntitySet<UserProfileAttribute>("userProfileAttributes");
             config.MapODataServiceRoute(
                 routeName: "ODataRoute",
                 routePrefix: "odata",
