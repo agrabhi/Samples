@@ -53,11 +53,11 @@ namespace WebApplication1.Controllers
 
         [HttpPatch]
         [ODataRoute("({id})")]
-        public UserProfileAttribute Patch(string id, [FromBody] Delta<UserProfileAttribute> up)
+        public UserProfileAttribute Patch(string id, [FromBody] Delta<CustomUserProfileAttribute> up)
         {
             var u = userProfileAttributes.Where(x => x.Id.Equals(id)).Single();
 
-            up.Patch(u);
+            up.Patch(u as CustomUserProfileAttribute);
 
             return u;
         }
