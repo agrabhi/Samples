@@ -28,12 +28,33 @@ namespace WebApplication1.Controllers
             return userProfileAttributes.AsQueryable();
         }
 
+        [EnableQuery]
+        [HttpGet]
+        [ODataRoute("({id})")]
+        public SingleResult<UserProfileAttribute> GetUserProfileAttribute(string id)
+        {
+            var u = userProfileAttributes.Where(x => x.Id.Equals(id)).Single();
+            return SingleResult.Create(new[] { u }.AsQueryable());
+            
+        }
+
         [HttpPost]
         [ODataRoute]
-        public UserProfileAttribute CreateIdentityProvider(CustomUserProfileAttribute up)
+        public UserProfileAttribute Create(CustomUserProfileAttribute up)
         {
             userProfileAttributes.Add(up);
             return up;
+        }
+
+        [HttpPatch]
+        [ODataRoute("({id})")]
+        public UserProfileAttribute Patch(string id, Delta<UserProfileAttribute> up)
+        {
+            var u = userProfileAttributes.Where(x => x.Id.Equals(id)).Single();
+
+            up.Patch(u);
+
+            return u;
         }
 
 
