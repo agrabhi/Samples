@@ -5,11 +5,11 @@ using System.Web;
 
 namespace WebApplication1.Models
 {
-    public abstract class UserProfileAttribute
+    public abstract class UserFlowAttribute
     {
         public string Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public UserProfileAttributeDataType DataType { get; set; }
+        public UserFlowAttributeDataType DataType { get; set; }
     }
 }

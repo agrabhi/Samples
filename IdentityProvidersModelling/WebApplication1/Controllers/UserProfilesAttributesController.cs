@@ -14,16 +14,16 @@ namespace WebApplication1.Controllers
     [ODataRoutePrefix("userProfileAttributes")]
     public class UserProfilesAttributesController : ODataController
     {
-        static List<UserProfileAttribute> userProfileAttributes = new List<UserProfileAttribute>()
+        static List<UserFlowAttribute> userProfileAttributes = new List<UserFlowAttribute>()
         {
-            new BuiltInUserProfileAttribute() { Id = "City", Name = "City", DataType = UserProfileAttributeDataType.String, Description = "your city" },            
-            new CustomUserProfileAttribute() { Id = "extension_guid_shoeSize", Name = "Shoe size", DataType = UserProfileAttributeDataType.String, Description = "Your shoe size" },            
+            new BuiltInUserProfileAttribute() { Id = "City", Name = "City", DataType = UserFlowAttributeDataType.String, Description = "your city" },            
+            new CustomUserProfileAttribute() { Id = "extension_guid_shoeSize", Name = "Shoe size", DataType = UserFlowAttributeDataType.String, Description = "Your shoe size" },            
         };
 
         [EnableQuery]
         [HttpGet]
         [ODataRoute]
-        public IQueryable<UserProfileAttribute> GetUserProfileAttributes()
+        public IQueryable<UserFlowAttribute> GetUserProfileAttributes()
         {
             return userProfileAttributes.AsQueryable();
         }
@@ -31,7 +31,7 @@ namespace WebApplication1.Controllers
         [EnableQuery]
         [HttpGet]
         [ODataRoute("({id})")]
-        public SingleResult<UserProfileAttribute> GetUserProfileAttribute(string id)
+        public SingleResult<UserFlowAttribute> GetUserProfileAttribute(string id)
         {
             var u = userProfileAttributes.Where(x => x.Id.Equals(id)).Single();
             return SingleResult.Create(new[] { u }.AsQueryable());
@@ -40,7 +40,7 @@ namespace WebApplication1.Controllers
 
         [HttpPost]
         [ODataRoute]
-        public UserProfileAttribute Create([FromBody] CustomUserProfileAttribute up)
+        public UserFlowAttribute Create([FromBody] CustomUserProfileAttribute up)
         {
             if (up == null)
             {
@@ -53,7 +53,7 @@ namespace WebApplication1.Controllers
 
         [HttpPatch]
         [ODataRoute("({id})")]
-        public UserProfileAttribute Patch(string id, [FromBody] Delta<CustomUserProfileAttribute> up)
+        public UserFlowAttribute Patch(string id, [FromBody] Delta<CustomUserProfileAttribute> up)
         {
             var u = userProfileAttributes.Where(x => x.Id.Equals(id)).Single();
 

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace WebApplication1.Models
 {
-    public enum UserProfileAttributeDataType
+    public enum UserFlowAttributeDataType
     {
         None = 0,
 

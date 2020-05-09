@@ -29,7 +29,7 @@ namespace WebApplication1
             builder.Namespace = "Microsoft.Graph";
 
             builder.EntitySet<IdentityProvider>("identityProviders");
-            builder.EntitySet<UserProfileAttribute>("userProfileAttributes");
+            builder.EntitySet<UserFlowAttribute>("userProfileAttributes");
             config.MapODataServiceRoute(
                 routeName: "ODataRoute",
                 routePrefix: "odata",

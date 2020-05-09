@@ -184,8 +184,8 @@
     <Compile Include="Models\CustomUserProfileAttribute.cs" />
     <Compile Include="Models\LocalIdentityProvider.cs" />
     <Compile Include="Models\IdentityProvider.cs" />
-    <Compile Include="Models\UserProfileAttribute.cs" />
-    <Compile Include="Models\UserProfileAttributeDataType.cs" />
+    <Compile Include="Models\UserFlowAttribute.cs" />
+    <Compile Include="Models\UserFlowAttributeDataType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
