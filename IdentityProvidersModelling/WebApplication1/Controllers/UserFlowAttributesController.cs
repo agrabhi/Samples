@@ -11,13 +11,13 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
-    [ODataRoutePrefix("userProfileAttributes")]
-    public class UserProfilesAttributesController : ODataController
+    [ODataRoutePrefix("userFlowAttributes")]
+    public class UserFlowAttributesController : ODataController
     {
         static List<UserFlowAttribute> userProfileAttributes = new List<UserFlowAttribute>()
         {
             new BuiltInUserProfileAttribute() { Id = "City", Name = "City", DataType = UserFlowAttributeDataType.String, Description = "your city" },            
-            new CustomUserProfileAttribute() { Id = "extension_guid_shoeSize", Name = "Shoe size", DataType = UserFlowAttributeDataType.String, Description = "Your shoe size" },            
+            new CustomUserFlowAttribute() { Id = "extension_guid_shoeSize", Name = "Shoe size", DataType = UserFlowAttributeDataType.String, Description = "Your shoe size" },            
         };
 
         [EnableQuery]
@@ -40,7 +40,7 @@ namespace WebApplication1.Controllers
 
         [HttpPost]
         [ODataRoute]
-        public UserFlowAttribute Create([FromBody] CustomUserProfileAttribute up)
+        public UserFlowAttribute Create([FromBody] CustomUserFlowAttribute up)
         {
             if (up == null)
             {
@@ -53,11 +53,11 @@ namespace WebApplication1.Controllers
 
         [HttpPatch]
         [ODataRoute("({id})")]
-        public UserFlowAttribute Patch(string id, [FromBody] Delta<CustomUserProfileAttribute> up)
+        public UserFlowAttribute Patch(string id, [FromBody] Delta<CustomUserFlowAttribute> up)
         {
             var u = userProfileAttributes.Where(x => x.Id.Equals(id)).Single();
 
-            up.Patch(u as CustomUserProfileAttribute);
+            up.Patch(u as CustomUserFlowAttribute);
 
             return u;
         }

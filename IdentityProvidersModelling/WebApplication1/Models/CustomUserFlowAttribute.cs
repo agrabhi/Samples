@@ -5,7 +5,7 @@ using System.Web;
 
 namespace WebApplication1.Models
 {
-    public class CustomUserProfileAttribute : UserFlowAttribute
+    public class CustomUserFlowAttribute : UserFlowAttribute
     {
     }
 }
