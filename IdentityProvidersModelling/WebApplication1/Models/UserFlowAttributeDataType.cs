@@ -7,15 +7,15 @@ namespace WebApplication1.Models
 {
     public enum UserFlowAttributeDataType
     {
-        None = 0,
+        none = 0,
 
-        String = 1,
+        @string = 1,
 
-        Boolean = 2,
+        @boolean = 2,
 
-        Int64 = 3,
+        @int64 = 3,
 
-        Stringcollection = 4,
+        stringcollection = 4,
 
         unknownFutureValue = 5,
     }

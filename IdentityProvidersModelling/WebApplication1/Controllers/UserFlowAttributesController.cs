@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.OData;
+using Microsoft.AspNet.OData.Query;
 using Microsoft.AspNet.OData.Routing;
 using System;
 using System.Collections.Generic;
@@ -16,13 +17,16 @@ namespace WebApplication1.Controllers
     {
         static List<UserFlowAttribute> userProfileAttributes = new List<UserFlowAttribute>()
         {
-            new BuiltInUserProfileAttribute() { Id = "City", Name = "City", DataType = UserFlowAttributeDataType.String, Description = "your city" },            
-            new CustomUserFlowAttribute() { Id = "extension_guid_shoeSize", Name = "Shoe size", DataType = UserFlowAttributeDataType.String, Description = "Your shoe size" },            
+            new BuiltInUserProfileAttribute() { Id = "City", DisplayName = "City", DataType = UserFlowAttributeDataType.@string, Description = "your city", UserFlowAttributeType = UserFlowAttributeType.BuiltIn },            
+            new CustomUserFlowAttribute() { Id = "extension_guid_shoeSize", DisplayName = "Shoe size", DataType = UserFlowAttributeDataType.@string, Description = "Your shoe size", UserFlowAttributeType = UserFlowAttributeType.Custom },            
         };
+
+        // [EnableQuery(AllowedQueryOptions = AllowedQueryOptions.Filter)]
+        // public IQueryable<UserFlowAttribute> GetUserProfileAttributes(ODataQueryOptions<UserFlowAttribute> queryOptions)
 
         [EnableQuery]
         [HttpGet]
-        [ODataRoute]
+        [ODataRoute]        
         public IQueryable<UserFlowAttribute> GetUserProfileAttributes()
         {
             return userProfileAttributes.AsQueryable();
