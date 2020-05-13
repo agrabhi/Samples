@@ -174,16 +174,16 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\IdentityUserFlowAuthenticationMethodsPolicyController.cs" />
+    <Compile Include="Controllers\UserFlowAuthenticationMethodsPolicyController.cs" />
     <Compile Include="Controllers\UserFlowAttributesController.cs" />
     <Compile Include="Controllers\IdentityProvidersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BuiltInUserProfileAttribute.cs" />
+    <Compile Include="Models\UserFlowAuthenticationMethodsPolicy.cs" />
     <Compile Include="Models\CustomIdentityProvider.cs" />
     <Compile Include="Models\CustomUserFlowAttribute.cs" />
-    <Compile Include="Models\IdentityUserFlowAuthenticationMethodsPolicy.cs" />
     <Compile Include="Models\LocalIdentityProvider.cs" />
     <Compile Include="Models\IdentityProvider.cs" />
     <Compile Include="Models\PoliciesRoot.cs" />

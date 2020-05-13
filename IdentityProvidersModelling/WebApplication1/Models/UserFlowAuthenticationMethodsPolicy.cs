@@ -5,15 +5,15 @@ using System.Web;
 
 namespace WebApplication1.Models
 {
-    public class IdentityUserFlowAuthenticationMethodsPolicy: PolicyBase
+    public class UserFlowAuthenticationMethodsPolicy: PolicyBase
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AuthenticationFlowsPolicy"/> class.
         /// </summary>
-        public IdentityUserFlowAuthenticationMethodsPolicy()
+        public UserFlowAuthenticationMethodsPolicy()
             : base(
-                  id: "identityUserFlowAuthenticationMethodsPolicy",
-                  description: "IdentityUserFlowAuthenticationMethodsPolicy allows configuration of authentication methods related to user flows.",
+                  id: "userFlowAuthenticationMethodsPolicy",
+                  description: "userFlowAuthenticationMethodsPolicy allows configuration of authentication methods related to user flows.",
                   displayName: "User flow authentication methods policy")
         {
         }

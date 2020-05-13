@@ -16,6 +16,6 @@ namespace WebApplication1.Models
         public string Id { get; set; }
 
         [Contained]
-        public IdentityUserFlowAuthenticationMethodsPolicy IdentityUserFlowAuthenticationMethodsPolicy { get; set; }
+        public UserFlowAuthenticationMethodsPolicy IdentityUserFlowAuthenticationMethodsPolicy { get; set; }
     }
 }
