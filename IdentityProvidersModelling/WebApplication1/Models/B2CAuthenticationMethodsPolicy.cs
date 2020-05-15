@@ -5,16 +5,16 @@ using System.Web;
 
 namespace WebApplication1.Models
 {
-    public class UserFlowAuthenticationMethodsPolicy: PolicyBase
+    public class B2cAuthenticationMethodsPolicy: PolicyBase
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AuthenticationFlowsPolicy"/> class.
         /// </summary>
-        public UserFlowAuthenticationMethodsPolicy()
+        public B2cAuthenticationMethodsPolicy()
             : base(
-                  id: "userFlowAuthenticationMethodsPolicy",
-                  description: "userFlowAuthenticationMethodsPolicy allows configuration of authentication methods related to user flows.",
-                  displayName: "User flow authentication methods policy")
+                  id: "b2CAuthenticationMethodsPolicy",
+                  description: "b2CAuthenticationMethodsPolicy allows configuration of authentication methods related to Azure AD B2C.",
+                  displayName: "Azure AD B2C authentication methods policy")
         {
         }
 

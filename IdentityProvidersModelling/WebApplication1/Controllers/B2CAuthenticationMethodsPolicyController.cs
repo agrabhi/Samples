@@ -12,22 +12,22 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
-    [ODataRoutePrefix("policies/userFlowAuthenticationMethodsPolicy")]
-    public class UserFlowAuthenticationMethodsPolicyController : ODataController
+    [ODataRoutePrefix("policies/b2cAuthenticationMethodsPolicy")]
+    public class B2cAuthenticationMethodsPolicyController : ODataController
     {
-        private static UserFlowAuthenticationMethodsPolicy policy = new UserFlowAuthenticationMethodsPolicy();
+        private static B2cAuthenticationMethodsPolicy policy = new B2cAuthenticationMethodsPolicy();
 
         [EnableQuery]
         [HttpGet]
         [ODataRoute]
-        public SingleResult<UserFlowAuthenticationMethodsPolicy> GetUserProfileAttribute()
+        public SingleResult<B2cAuthenticationMethodsPolicy> Get()
         {
             return SingleResult.Create(new[] { policy }.AsQueryable());
         }
 
         [HttpPatch]
         [ODataRoute]
-        public void Patch([FromBody] Delta<UserFlowAuthenticationMethodsPolicy> up)
+        public void Patch([FromBody] Delta<B2cAuthenticationMethodsPolicy> up)
         {
             up.Patch(policy);
             

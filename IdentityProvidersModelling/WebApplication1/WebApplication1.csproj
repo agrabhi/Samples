@@ -174,16 +174,19 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\UserFlowAuthenticationMethodsPolicyController.cs" />
+    <Compile Include="Controllers\B2cAuthenticationMethodsPolicyController.cs" />
     <Compile Include="Controllers\UserFlowAttributesController.cs" />
     <Compile Include="Controllers\IdentityProvidersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\B2CAuthenticationMethods.cs" />
     <Compile Include="Models\BuiltInUserProfileAttribute.cs" />
-    <Compile Include="Models\UserFlowAuthenticationMethodsPolicy.cs" />
+    <Compile Include="Models\B2cAuthenticationMethodsPolicy.cs" />
     <Compile Include="Models\CustomIdentityProvider.cs" />
     <Compile Include="Models\CustomUserFlowAttribute.cs" />
+    <Compile Include="Models\IdentityContainer.cs" />
+    <Compile Include="Models\IdentityUserFlow.cs" />
     <Compile Include="Models\LocalIdentityProvider.cs" />
     <Compile Include="Models\IdentityProvider.cs" />
     <Compile Include="Models\PoliciesRoot.cs" />
@@ -191,6 +194,7 @@
     <Compile Include="Models\UserFlowAttribute.cs" />
     <Compile Include="Models\UserFlowAttributeType.cs" />
     <Compile Include="Models\UserFlowAttributeDataType.cs" />
+    <Compile Include="Models\UserFlowType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
