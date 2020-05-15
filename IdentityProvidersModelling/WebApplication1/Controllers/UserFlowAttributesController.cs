@@ -12,7 +12,7 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
-    [ODataRoutePrefix("userFlowAttributes")]
+    [ODataRoutePrefix("identity/userFlowAttributes")]
     public class UserFlowAttributesController : ODataController
     {
         static List<UserFlowAttribute> userProfileAttributes = new List<UserFlowAttribute>()

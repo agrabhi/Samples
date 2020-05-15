@@ -18,5 +18,8 @@ namespace WebApplication1.Models
         /// </summary>
         [Contained]
         public List<IdentityUserFlow> UserFlows { get; set; }
+
+        [Contained]
+        public List<UserFlowAttribute> UserFlowAttributes { get; set; }
     }
 }

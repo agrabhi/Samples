@@ -30,9 +30,9 @@ namespace WebApplication1
             builder.Namespace = "Microsoft.Graph";
 
             builder.Singleton<PoliciesRoot>("policies");
+            builder.Singleton<IdentityContainer>("identity");
 
             builder.EntitySet<IdentityProvider>("identityProviders");
-            builder.EntitySet<UserFlowAttribute>("userFlowAttributes");
             config.MapODataServiceRoute(
                 routeName: "ODataRoute",
                 routePrefix: "odata",
