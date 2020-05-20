@@ -18,10 +18,10 @@ namespace WebApplication1.Models
         {
         }
 
-        public Boolean PhoneOneTimePasswordAuthenticationEnabled { get; set; }
+        public Boolean IsPhoneOneTimePasswordAuthenticationEnabled { get; set; }
 
-        public Boolean EmailPasswordAuthenticationEnabled { get; set; }
+        public Boolean IsEmailPasswordAuthenticationEnabled { get; set; }
 
-        public Boolean UserNameAuthenticationEnabled { get; set; }
+        public Boolean IsUserNameAuthenticationEnabled { get; set; }
     }
 }
