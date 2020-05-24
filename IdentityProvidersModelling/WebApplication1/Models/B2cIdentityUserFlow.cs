@@ -10,6 +10,6 @@
 
         public UserFlowTokenClaimsConfiguration TokenClaimsConfiguration { get; set; }
 
-
+        public UserFlowPasswordComplexityConfiguration PasswordComplexityConfiguration { get; set; }
     }
 }
