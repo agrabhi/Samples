@@ -16,7 +16,5 @@
         /// Gets or sets the version of the user flow type 
         /// </summary>
         public float UserFlowTypeVersion { get; set; }
-
-        public B2CAuthenticationMethods AuthenticationMethods { get; set; }
     }
 }
