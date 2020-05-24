@@ -17,7 +17,6 @@ namespace WebApplication1.Controllers
         static List<IdentityProvider> idps = new List<IdentityProvider>()
         {
             new IdentityProvider() { Name = "MyIdp", ClientId = "sdas", ClientSecret = "sakdjnaskd", Id = "Facebook-OAuth", Type = "Facebook" },
-            new LocalIdentityProvider() { Name = "localIdp", Id = "Phone-OAuth", Type = "LocalAccountPhone" },
             new CustomIdentityProvider() { Name = "CustomIdp", ClientId = "sdas", ClientSecret = "sakdjnaskd", Id = "Custom-OAuth", Type = "Custom", Protocol = "OIDC" },
         };
 
@@ -33,11 +32,6 @@ namespace WebApplication1.Controllers
         [ODataRoute]
         public IdentityProvider CreateIdentityProvider(IdentityProvider idp)
         {
-            if (idp.Type.Contains("LocalAccount"))
-            {
-                idp = new LocalIdentityProvider() { Id = idp.Id, Name = idp.Name, Type = idp.Type };
-            }
-
             idp.Type = idp.GetType().FullName;
             idps.Add(idp);
             return idp;
