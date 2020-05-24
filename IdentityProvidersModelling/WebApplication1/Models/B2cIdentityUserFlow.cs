@@ -1,4 +1,6 @@
-﻿namespace WebApplication1.Models
+﻿using System.Collections.Generic;
+
+namespace WebApplication1.Models
 {
     public class B2cIdentityUserFlow: IdentityUserFlow
     {
@@ -11,5 +13,13 @@
         public UserFlowTokenClaimsConfiguration TokenClaimsConfiguration { get; set; }
 
         public UserFlowPasswordComplexityConfiguration PasswordComplexityConfiguration { get; set; }
+
+        public ICollection<IdentityProvider> IdentityProviders { get; set; }
+
+        public B2CAuthenticationMethods AuthenticationMethods { get; set; }
+
+        public ICollection<UserFlowAttribute> UserAttributes { get; set; }
+
+        public ICollection<UserFlowAttribute> ApplicationClaims { get; set; }
     }
 }
