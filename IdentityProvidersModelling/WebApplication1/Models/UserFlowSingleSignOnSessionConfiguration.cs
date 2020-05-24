@@ -5,13 +5,13 @@ using System.Web;
 
 namespace WebApplication1.Models
 {
-    public class SingleSignOnSessionConfiguration
+    public class UserFlowSingleSignOnSessionConfiguration
     {
         public int SessionLifetimeInMinutes { get; set; }
 
         public bool IsSessionLifetimeAbsolute { get; set; }
 
-        public IdentityUserFlowSingleSignOnConfigurationScope SessionScope { get; set; }
+        public UserFlowSingleSignOnConfigurationScope SessionScope { get; set; }
 
         public bool EnforceIdTokenHintOnLogout { get; set; }
     }

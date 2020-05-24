@@ -5,7 +5,7 @@ using System.Web;
 
 namespace WebApplication1.Models
 {
-    public enum IdentityUserFlowSingleSignOnConfigurationScope
+    public enum UserFlowSingleSignOnConfigurationScope
     {
         Tenant = 1,
 

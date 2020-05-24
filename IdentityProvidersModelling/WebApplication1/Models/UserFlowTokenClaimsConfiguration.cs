@@ -5,7 +5,7 @@ using System.Web;
 
 namespace WebApplication1.Models
 {
-    public class TokenClaimsConfiguration
+    public class UserFlowTokenClaimsConfiguration
     {
         /// <summary>
         /// Gets or sets the issuer claim .
