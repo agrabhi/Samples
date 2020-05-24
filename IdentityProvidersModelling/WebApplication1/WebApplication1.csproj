@@ -190,8 +190,12 @@
     <Compile Include="Models\B2cIdentityUserFlow.cs" />
     <Compile Include="Models\IdentityUserFlow.cs" />
     <Compile Include="Models\IdentityProvider.cs" />
+    <Compile Include="Models\IdentityUserFlowSingleSignOnConfigurationScope.cs" />
     <Compile Include="Models\PoliciesRoot.cs" />
     <Compile Include="Models\PolicyBase.cs" />
+    <Compile Include="Models\SingleSignOnSessionConfiguration.cs" />
+    <Compile Include="Models\TokenClaimsConfiguration.cs" />
+    <Compile Include="Models\TokenLifetimeConfiguration.cs" />
     <Compile Include="Models\UserFlowAttribute.cs" />
     <Compile Include="Models\UserFlowAttributeType.cs" />
     <Compile Include="Models\UserFlowAttributeDataType.cs" />
