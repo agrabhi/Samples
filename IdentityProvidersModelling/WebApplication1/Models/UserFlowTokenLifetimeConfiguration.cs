@@ -5,7 +5,7 @@ using System.Web;
 
 namespace WebApplication1.Models
 {
-    public class TokenLifetimeConfiguration
+    public class UserFlowTokenLifetimeConfiguration
     {
         public int AccessAndIdTokenLifetime { get; set; }
 

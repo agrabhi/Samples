@@ -180,7 +180,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\B2CAuthenticationMethods.cs" />
+    <Compile Include="Models\B2cAuthenticationMethods.cs" />
     <Compile Include="Models\BuiltInUserProfileAttribute.cs" />
     <Compile Include="Models\B2cAuthenticationMethodsPolicy.cs" />
     <Compile Include="Models\CustomIdentityProvider.cs" />
@@ -190,7 +190,6 @@
     <Compile Include="Models\B2cIdentityUserFlow.cs" />
     <Compile Include="Models\IdentityUserFlow.cs" />
     <Compile Include="Models\IdentityProvider.cs" />
-    <Compile Include="Models\UserFlowAadGuestSignUpConfiguration.cs" />
     <Compile Include="Models\UserFlowCustomPasswordComplexity.cs" />
     <Compile Include="Models\UserFlowSingleSignOnConfigurationScope.cs" />
     <Compile Include="Models\UserFlowPasswordComplexityConfiguration.cs" />

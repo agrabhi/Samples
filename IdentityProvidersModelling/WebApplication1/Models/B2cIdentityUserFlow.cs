@@ -6,7 +6,7 @@ namespace WebApplication1.Models
     {
         public bool IsMultifactorAuthenticationEnabled { get; set; }
 
-        public TokenLifetimeConfiguration TokenLifetimeConfiguration { get; set; }
+        public UserFlowTokenLifetimeConfiguration TokenLifetimeConfiguration { get; set; }
 
         public UserFlowSingleSignOnSessionConfiguration SingleSignOnSessionConfiguration { get; set; }
 
@@ -16,7 +16,7 @@ namespace WebApplication1.Models
 
         public ICollection<IdentityProvider> IdentityProviders { get; set; }
 
-        public B2CAuthenticationMethods AuthenticationMethods { get; set; }
+        public B2cAuthenticationMethods AuthenticationMethods { get; set; }
 
         public ICollection<UserFlowAttribute> UserAttributes { get; set; }
 

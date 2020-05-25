@@ -5,7 +5,7 @@ using System.Web;
 
 namespace WebApplication1.Models
 {
-    public class B2CAuthenticationMethods
+    public class B2cAuthenticationMethods
     {
         public Boolean PhoneOneTimePasswordAuthenticationEnabled { get; set; }
 
