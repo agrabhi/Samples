@@ -5,7 +5,7 @@ using System.Web;
 
 namespace WebApplication1.Models
 {
-    public class UserFlowOtherTenantsSignUpConfiguration
+    public class UserFlowAadGuestSignUpConfiguration
     {
         public bool isEnabled { get; set; }
     }

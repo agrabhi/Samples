@@ -190,7 +190,7 @@
     <Compile Include="Models\B2cIdentityUserFlow.cs" />
     <Compile Include="Models\IdentityUserFlow.cs" />
     <Compile Include="Models\IdentityProvider.cs" />
-    <Compile Include="Models\UserFlowOtherTenantsSignUpConfiguration.cs" />
+    <Compile Include="Models\UserFlowAadGuestSignUpConfiguration.cs" />
     <Compile Include="Models\UserFlowCustomPasswordComplexity.cs" />
     <Compile Include="Models\UserFlowSingleSignOnConfigurationScope.cs" />
     <Compile Include="Models\UserFlowPasswordComplexityConfiguration.cs" />

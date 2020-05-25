@@ -4,7 +4,7 @@ namespace WebApplication1.Models
 {
     public class B2xIdentityUserFlow: IdentityUserFlow
     {
-        public UserFlowOtherTenantsSignUpConfiguration OtherTenantsSignUpConfiguration { get; set; }
+        public UserFlowAadGuestSignUpConfiguration AadGuestSignUpConfiguration { get; set; }
 
         public ICollection<IdentityProvider> IdentityProviders { get; set; }
 
