@@ -17,6 +17,6 @@ namespace WebApplication1.Models
         /// Indicates how many character classes are required from uppercase, lowercase, number and symbols
         /// Valid values => 0/1 = none, 2, 3, 4
         /// </summary>
-        public int MinCharacterClassesRequired { get; set; }
+        public int MinimumCharacterClassesRequired { get; set; }
     }
 }

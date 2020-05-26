@@ -5,12 +5,15 @@ using System.Web;
 
 namespace WebApplication1.Models
 {
-    public class B2cAuthenticationMethods
+    [Flags]
+    public enum B2cAuthenticationMethods
     {
-        public Boolean PhoneOneTimePasswordAuthenticationEnabled { get; set; }
+        PhoneOneTimePassword = 1 << 1,
 
-        public Boolean EmailPasswordAuthenticationEnabled { get; set; }
+        EmailPassword = 1 << 2,
 
-        public Boolean UserNameAuthenticationEnabled { get; set; }
+        UserName = 1 << 3,
+
+        UnknownFutureValue = 1 << 4,
     }
 }

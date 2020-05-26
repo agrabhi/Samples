@@ -11,7 +11,7 @@ namespace WebApplication1.Models
 
         Application = 2,
 
-        UserFlow = 3,
+        Policy = 3,
 
         Disabled = 4,
     }

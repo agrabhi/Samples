@@ -13,7 +13,7 @@ namespace WebApplication1.Models
         /// <value>
         /// Set if the issuer claim is tenant specific or user flow specific         /// 
         /// </value>
-        public bool DoesIssuerClaimhasUserFlow { get; set; }
+        public bool IsIssuerEntityUserFlow { get; set; }
 
         public bool UseTfpClaimForUserFlow { get; set; }
 
