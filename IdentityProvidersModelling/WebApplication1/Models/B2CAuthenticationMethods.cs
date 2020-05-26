@@ -8,12 +8,12 @@ namespace WebApplication1.Models
     [Flags]
     public enum B2cAuthenticationMethods
     {
-        PhoneOneTimePassword = 1 << 1,
+        EmailWithPassword = 1 << 0,
 
-        EmailPassword = 1 << 2,
+        UserName = 1 << 1,
 
-        UserName = 1 << 3,
+        PhoneWithOneTimePassword = 1 << 2,
 
-        UnknownFutureValue = 1 << 4,
+        UnknownFutureValue = 1 << 3,
     }
 }
