@@ -22,6 +22,21 @@ namespace WebApplication1.Controllers
                 Id = "B2X_1_Partner",
                 UserFlowType = UserFlowType.B2xSignUpOrSignIn,
                 UserFlowTypeVersion = 1F
+            },
+            new B2cIdentityUserFlow()
+            {
+                Id = "B2C_1_Consumer",
+                IsMultifactorAuthenticationEnabled = false,
+                AuthenticationMethods = B2cAuthenticationMethods.EmailWithPassword,
+                PasswordComplexityConfiguration = new UserFlowPasswordComplexityConfiguration()
+                {
+                    ComplexityLevel = UserFlowPasswordComplexityLevel.Simple
+                },
+                SingleSignOnSessionConfiguration = new UserFlowSingleSignOnSessionConfiguration(),
+                TokenClaimsConfiguration = new UserFlowTokenClaimsConfiguration(),
+                TokenLifetimeConfiguration = new UserFlowTokenLifetimeConfiguration(),
+                UserFlowType = UserFlowType.B2cSignUpOrSignIn,
+                UserFlowTypeVersion = 1F
             }
         };
 
