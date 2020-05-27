@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Routing;
 using WebApplication1.Models;
+using WebApplication1.Utils;
 
 namespace WebApplication1.Controllers
 {
@@ -102,8 +103,8 @@ namespace WebApplication1.Controllers
 
         [EnableQuery(AllowedQueryOptions = AllowedQueryOptions.Select | AllowedQueryOptions.Expand)]
         [HttpGet]
-        [ODataRoute("({id})/Microsoft.Graph.b2cIdentityUserFlow/identityProviders")]
-        [ODataRoute("({id})/Microsoft.Graph.b2xIdentityUserFlow/identityProviders")]
+        [ODataRoute("({id})/Microsoft.Graph.B2cIdentityUserFlow/identityProviders")]
+        [ODataRoute("({id})/Microsoft.Graph.B2xIdentityUserFlow/identityProviders")]
         public IQueryable<IdentityProvider> GetIdentityProviders(string id)
         {
             var u = userFlows.Where(x => x.Id.Equals(id)).Single();
@@ -114,6 +115,33 @@ namespace WebApplication1.Controllers
 
             var upc = u as B2cIdentityUserFlow;
             return upc.IdentityProviders.AsQueryable();
+        }
+
+        [HttpPost]
+        [ODataRoute("({id})/Microsoft.Graph.b2cIdentityUserFlow/identityProviders/$ref")]
+        [ODataRoute("({id})/Microsoft.Graph.b2xIdentityUserFlow/identityProviders/$ref")]
+        public IHttpActionResult CreateRef([FromODataUri] string id, [FromBody] Uri link)
+        {
+            var u = userFlows.Where(x => x.Id.Equals(id)).Single();
+            if (u == null)
+            {
+                return NotFound();
+            }
+            var up = u as B2xIdentityUserFlow;
+            var upc = u as B2cIdentityUserFlow;
+
+            var relatedKey = Helpers.GetKeyFromUri<string>(Request, link);
+            var idp = IdentityProvidersController.idps.First(X => X.Id.Equals(relatedKey));
+            if (idp == null)
+            {
+                return NotFound();
+            }
+
+            up?.IdentityProviders.Add(idp);
+            upc?.IdentityProviders.Add(idp);
+
+
+            return StatusCode(HttpStatusCode.NoContent);
         }
 
         [HttpPost]
