@@ -99,6 +99,23 @@ namespace WebApplication1.Controllers
 
         }
 
+
+        [EnableQuery(AllowedQueryOptions = AllowedQueryOptions.Select | AllowedQueryOptions.Expand)]
+        [HttpGet]
+        [ODataRoute("({id})/Microsoft.Graph.b2cIdentityUserFlow/identityProviders")]
+        [ODataRoute("({id})/Microsoft.Graph.b2xIdentityUserFlow/identityProviders")]
+        public IQueryable<IdentityProvider> GetIdentityProviders(string id)
+        {
+            var u = userFlows.Where(x => x.Id.Equals(id)).Single();
+            var up =  u as B2xIdentityUserFlow;
+
+            if (up != null)
+                return up.IdentityProviders.AsQueryable();
+
+            var upc = u as B2cIdentityUserFlow;
+            return upc.IdentityProviders.AsQueryable();
+        }
+
         [HttpPost]
         [ODataRoute]
         public IdentityUserFlow Create([FromBody] IdentityUserFlow up)
@@ -108,21 +125,37 @@ namespace WebApplication1.Controllers
                 throw new Exception("NULL");
             }
 
+            if (userFlows.Any(x => x.Id.Equals(up.Id, StringComparison.OrdinalIgnoreCase)))
+            {
+                throw new Exception("Duplicate");
+            }
+
             userFlows.Add(up);
             return up;
         }
 
+        //[HttpPost]
+        //[ODataRoute]
+        //public IdentityUserFlow CreateB2C([FromBody] B2cIdentityUserFlow up)
+        //{
+        //    if (up == null)
+        //    {
+        //        throw new Exception("NULL");
+        //    }
+
+        //    userFlows.Add(up);
+        //    return up;
+        //}
+
         [HttpPatch]
         [ODataRoute("({id})")]
-        public IdentityUserFlow Patch(string id, [FromBody] Delta<CustomUserFlowAttribute> up)
+        public IdentityUserFlow Patch(string id, [FromBody] Delta<IdentityUserFlow> delta)
         {
-            //var u = userFlows.Where(x => x.Id.Equals(id)).Single();
+            var original = userFlows.Where(x => x.Id.Equals(id, StringComparison.OrdinalIgnoreCase)).Single();
 
-            //up.Patch(u as CustomUserFlowAttribute);
+            delta.Patch(original);
 
-            //return u;
-
-            return null;
+            return original;
         }
 
 

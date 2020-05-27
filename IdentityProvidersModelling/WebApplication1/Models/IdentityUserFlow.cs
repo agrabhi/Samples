@@ -1,6 +1,6 @@
 ﻿namespace WebApplication1.Models
 {
-    public abstract class IdentityUserFlow
+    public class IdentityUserFlow
     {
         /// <summary>
         /// Gets or sets The unique identifier of the IdentityUserFlow. 

@@ -23,7 +23,7 @@ namespace WebApplication1
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            //config.Expand().Select();
+            config.Expand().Select();
 
             // New code:
             var builder = new ODataConventionModelBuilder();
