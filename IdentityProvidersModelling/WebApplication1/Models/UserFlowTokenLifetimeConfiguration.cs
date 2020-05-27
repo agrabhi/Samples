@@ -7,7 +7,7 @@ namespace WebApplication1.Models
 {
     public class UserFlowTokenLifetimeConfiguration
     {
-        public int AccessAndIdTokenLifetime { get; set; }
+        public int AccessAndIdTokenLifetimeInMinutes { get; set; }
 
         public int RefreshTokenLifetimeInDays { get; set; }
 

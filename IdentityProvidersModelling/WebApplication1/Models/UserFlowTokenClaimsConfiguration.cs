@@ -15,9 +15,7 @@ namespace WebApplication1.Models
         /// </value>
         public bool IsIssuerEntityUserFlow { get; set; }
 
-        public bool UseTfpClaimForUserFlow { get; set; }
-
-        public bool UseAcrClaimForUserFlow { get; set; }
+        public string ClaimTypeForUserFlowId { get; set; }
 
         /// <summary>
         /// If yes, it will have objectId

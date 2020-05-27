@@ -21,7 +21,16 @@ namespace WebApplication1.Controllers
             {
                 Id = "B2X_1_Partner",
                 UserFlowType = UserFlowType.B2xSignUpOrSignIn,
-                UserFlowTypeVersion = 1F
+                UserFlowTypeVersion = 1F,
+                IdentityProviders = new List<IdentityProvider>()
+                {
+                    new IdentityProvider() { Name = "MyIdp", ClientId = "sdas", ClientSecret = "****", Id = "Facebook-OAuth", Type = "Facebook" },
+                },
+                UserAttributes = new List<UserFlowAttribute>()
+                {
+                    new BuiltInUserProfileAttribute() { Id = "City", DisplayName = "City", DataType = UserFlowAttributeDataType.@string, Description = "your city", UserFlowAttributeType = UserFlowAttributeType.BuiltIn },
+                    new CustomUserFlowAttribute() { Id = "extension_guid_shoeSize", DisplayName = "Shoe size", DataType = UserFlowAttributeDataType.@string, Description = "Your shoe size", UserFlowAttributeType = UserFlowAttributeType.Custom },
+                }
             },
             new B2cIdentityUserFlow()
             {
@@ -32,21 +41,50 @@ namespace WebApplication1.Controllers
                 {
                     ComplexityLevel = UserFlowPasswordComplexityLevel.Simple
                 },
-                SingleSignOnSessionConfiguration = new UserFlowSingleSignOnSessionConfiguration(),
-                TokenClaimsConfiguration = new UserFlowTokenClaimsConfiguration(),
-                TokenLifetimeConfiguration = new UserFlowTokenLifetimeConfiguration(),
+                SingleSignOnSessionConfiguration = new UserFlowSingleSignOnSessionConfiguration()
+                {
+                    EnforceIdTokenHintOnLogout = true,
+                    IsSessionLifetimeAbsolute = true,
+                    SessionLifetimeInMinutes = 120,
+                    SessionScope = UserFlowSingleSignOnConfigurationScope.Policy,
+                },
+                TokenClaimsConfiguration = new UserFlowTokenClaimsConfiguration()
+                {
+                    IsIssuerEntityUserFlow = true,
+                    IsSubjectClaimSupported = true,
+                    ClaimTypeForUserFlowId = "acr",
+                },
+                TokenLifetimeConfiguration = new UserFlowTokenLifetimeConfiguration()
+                {
+                    AccessAndIdTokenLifetimeInMinutes = 120,
+                    RefreshTokenLifetimeInDays = 120,
+                    RollingRefreshTokenLifetimeInDays = -1,
+                },
                 UserFlowType = UserFlowType.B2cSignUpOrSignIn,
-                UserFlowTypeVersion = 1F
+                UserFlowTypeVersion = 1F,
+                IdentityProviders = new List<IdentityProvider>()
+                {
+                    new IdentityProvider() { Name = "MyIdp", ClientId = "sdas", ClientSecret = "****", Id = "Facebook-OAuth", Type = "Facebook" },
+                },
+                UserAttributes = new List<UserFlowAttribute>()
+                {
+                    new BuiltInUserProfileAttribute() { Id = "City", DisplayName = "City", DataType = UserFlowAttributeDataType.@string, Description = "your city", UserFlowAttributeType = UserFlowAttributeType.BuiltIn },
+                    new CustomUserFlowAttribute() { Id = "extension_guid_shoeSize", DisplayName = "Shoe size", DataType = UserFlowAttributeDataType.@string, Description = "Your shoe size", UserFlowAttributeType = UserFlowAttributeType.Custom },
+                },
+                ApplicationClaims = new List<UserFlowAttribute>()
+                {
+                    new BuiltInUserProfileAttribute() { Id = "City", DisplayName = "City", DataType = UserFlowAttributeDataType.@string, Description = "your city", UserFlowAttributeType = UserFlowAttributeType.BuiltIn },                    
+                }
             }
         };
 
         // [EnableQuery(AllowedQueryOptions = AllowedQueryOptions.Filter)]
         // public IQueryable<UserFlowAttribute> GetUserProfileAttributes(ODataQueryOptions<UserFlowAttribute> queryOptions)
 
-        [EnableQuery]
+        [EnableQuery(AllowedQueryOptions=AllowedQueryOptions.Select | AllowedQueryOptions.Expand)]        
         [HttpGet]
-        [ODataRoute]        
-        public IQueryable<IdentityUserFlow> GetUserProfileAttributes()
+        [ODataRoute]
+        public IQueryable<IdentityUserFlow> List()
         {
             return userFlows.AsQueryable();
         }
@@ -58,7 +96,7 @@ namespace WebApplication1.Controllers
         {
             var u = userFlows.Where(x => x.Id.Equals(id)).Single();
             return SingleResult.Create(new[] { u }.AsQueryable());
-            
+
         }
 
         [HttpPost]

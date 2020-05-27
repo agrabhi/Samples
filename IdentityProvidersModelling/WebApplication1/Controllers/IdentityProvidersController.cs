@@ -14,9 +14,9 @@ namespace WebApplication1.Controllers
     [ODataRoutePrefix("identityProviders")]
     public class IdentityProvidersController : ODataController
     {
-        static List<IdentityProvider> idps = new List<IdentityProvider>()
+        public static List<IdentityProvider> idps = new List<IdentityProvider>()
         {
-            new IdentityProvider() { Name = "MyIdp", ClientId = "sdas", ClientSecret = "sakdjnaskd", Id = "Facebook-OAuth", Type = "Facebook" },
+            new IdentityProvider() { Name = "MyIdp", ClientId = "sdas", ClientSecret = "****", Id = "Facebook-OAuth", Type = "Facebook" },
             new CustomIdentityProvider() { Name = "CustomIdp", ClientId = "sdas", ClientSecret = "sakdjnaskd", Id = "Custom-OAuth", Type = "Custom", Protocol = "OIDC" },
         };
 
