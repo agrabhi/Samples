@@ -89,10 +89,10 @@ namespace WebApplication1.Controllers
             return userFlows.AsQueryable();
         }
 
-        [EnableQuery]
+        [EnableQuery(AllowedQueryOptions = AllowedQueryOptions.Select | AllowedQueryOptions.Expand)]
         [HttpGet]
         [ODataRoute("({id})")]
-        public SingleResult<IdentityUserFlow> GetUserProfileAttribute(string id)
+        public SingleResult<IdentityUserFlow> Get(string id)
         {
             var u = userFlows.Where(x => x.Id.Equals(id)).Single();
             return SingleResult.Create(new[] { u }.AsQueryable());
