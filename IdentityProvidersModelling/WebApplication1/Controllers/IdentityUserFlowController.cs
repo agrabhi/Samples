@@ -120,7 +120,7 @@ namespace WebApplication1.Controllers
         [HttpPost]
         [ODataRoute("({id})/Microsoft.Graph.b2cIdentityUserFlow/identityProviders/$ref")]
         [ODataRoute("({id})/Microsoft.Graph.b2xIdentityUserFlow/identityProviders/$ref")]
-        public IHttpActionResult CreateIdentityProviders([FromODataUri] string id, [FromBody] Uri link)
+        public IHttpActionResult AddIdentityProviders([FromODataUri] string id, [FromBody] Uri link)
         {
             var u = userFlows.Where(x => x.Id.Equals(id)).Single();
             if (u == null)
