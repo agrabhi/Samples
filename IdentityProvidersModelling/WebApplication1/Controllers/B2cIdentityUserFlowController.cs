@@ -13,26 +13,11 @@ using WebApplication1.Utils;
 
 namespace WebApplication1.Controllers
 {
-    [ODataRoutePrefix("identity/userFlows")]
-    public class IdentityUserFlowController : ODataController
+    [ODataRoutePrefix("identity/b2cUserFlows")]
+    public class B2cIdentityUserFlowController : ODataController
     {
-        static List<IdentityUserFlow> userFlows = new List<IdentityUserFlow>()
+        static List<B2cIdentityUserFlow> userFlows = new List<B2cIdentityUserFlow>()
         {
-            new B2xIdentityUserFlow()
-            {
-                Id = "B2X_1_Partner",
-                UserFlowType = UserFlowType.B2xSignUpOrSignIn,
-                UserFlowTypeVersion = 1F,
-                IdentityProviders = new List<IdentityProvider>()
-                {
-                    new IdentityProvider() { Name = "MyIdp", ClientId = "sdas", ClientSecret = "****", Id = "Facebook-OAuth", Type = "Facebook" },
-                },
-                UserAttributes = new List<UserFlowAttribute>()
-                {
-                    new BuiltInUserProfileAttribute() { Id = "City", DisplayName = "City", DataType = UserFlowAttributeDataType.@string, Description = "your city", UserFlowAttributeType = UserFlowAttributeType.BuiltIn },
-                    new CustomUserFlowAttribute() { Id = "extension_guid_shoeSize", DisplayName = "Shoe size", DataType = UserFlowAttributeDataType.@string, Description = "Your shoe size", UserFlowAttributeType = UserFlowAttributeType.Custom },
-                }
-            },
             new B2cIdentityUserFlow()
             {
                 Id = "B2C_1_Consumer",
@@ -79,13 +64,10 @@ namespace WebApplication1.Controllers
             }
         };
 
-        // [EnableQuery(AllowedQueryOptions = AllowedQueryOptions.Filter)]
-        // public IQueryable<UserFlowAttribute> GetUserProfileAttributes(ODataQueryOptions<UserFlowAttribute> queryOptions)
-
         [EnableQuery(AllowedQueryOptions=AllowedQueryOptions.Select | AllowedQueryOptions.Expand)]        
         [HttpGet]
         [ODataRoute]
-        public IQueryable<IdentityUserFlow> List()
+        public IQueryable<B2cIdentityUserFlow> List()
         {
             return userFlows.AsQueryable();
         }
@@ -93,13 +75,12 @@ namespace WebApplication1.Controllers
         [EnableQuery(AllowedQueryOptions = AllowedQueryOptions.Select | AllowedQueryOptions.Expand)]
         [HttpGet]
         [ODataRoute("({id})")]
-        public SingleResult<IdentityUserFlow> Get(string id)
+        public SingleResult<B2cIdentityUserFlow> Get(string id)
         {
             var u = userFlows.Where(x => x.Id.Equals(id)).Single();
             return SingleResult.Create(new[] { u }.AsQueryable());
 
         }
-
 
         [EnableQuery(AllowedQueryOptions = AllowedQueryOptions.Select | AllowedQueryOptions.Expand)]
         [HttpGet]
@@ -165,7 +146,7 @@ namespace WebApplication1.Controllers
 
         [HttpPost]
         [ODataRoute]
-        public IdentityUserFlow Create([FromBody] IdentityUserFlow up)
+        public B2cIdentityUserFlow Create([FromBody] B2cIdentityUserFlow up)
         {
             if (up == null)
             {
@@ -183,7 +164,7 @@ namespace WebApplication1.Controllers
 
         //[HttpPost]
         //[ODataRoute]
-        //public IdentityUserFlow CreateB2C([FromBody] B2cIdentityUserFlow up)
+        //public B2cIdentityUserFlow CreateB2C([FromBody] B2cIdentityUserFlow up)
         //{
         //    if (up == null)
         //    {
@@ -196,7 +177,7 @@ namespace WebApplication1.Controllers
 
         [HttpPatch]
         [ODataRoute("({id})")]
-        public IdentityUserFlow Patch(string id, [FromBody] Delta<IdentityUserFlow> delta)
+        public B2cIdentityUserFlow Patch(string id, [FromBody] Delta<B2cIdentityUserFlow> delta)
         {
             var original = userFlows.Where(x => x.Id.Equals(id, StringComparison.OrdinalIgnoreCase)).Single();
 

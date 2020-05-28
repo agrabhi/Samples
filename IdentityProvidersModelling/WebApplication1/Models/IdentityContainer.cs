@@ -20,6 +20,12 @@ namespace WebApplication1.Models
         public List<IdentityUserFlow> UserFlows { get; set; }
 
         [Contained]
+        public List<B2xIdentityUserFlow> B2xUserFlows { get; set; }
+
+        [Contained]
+        public List<B2cIdentityUserFlow> B2cUserFlows { get; set; }
+
+        [Contained]
         public List<UserFlowAttribute> UserFlowAttributes { get; set; }
     }
 }

@@ -11,44 +11,38 @@ namespace WebApplication1.Models
         /// <summary>
         /// The SignUp Policy
         /// </summary>
-        [EnumMember(Value = "b2cSignUp")]
-        B2cSignUp = 1,
+        [EnumMember(Value = "SignUp")]
+        SignUp = 1,
 
         /// <summary>
         /// The SignIn Policy
         /// </summary>
-        [EnumMember(Value = "b2cSignIn")]
-        B2cSignIn = 2,
+        [EnumMember(Value = "SignIn")]
+        SignIn = 2,
 
         /// <summary>
         /// The SignupOrSignIn policy
         /// </summary>
-        [EnumMember(Value = "b2cSignUpOrSignIn")]
-        B2cSignUpOrSignIn = 3,
+        [EnumMember(Value = "SignUpOrSignIn")]
+        SignUpOrSignIn = 3,
 
         /// <summary>
         /// The PasswordReset policy
         /// </summary>
-        [EnumMember(Value = "b2cPasswordReset")]
-        B2cPasswordReset = 4,
+        [EnumMember(Value = "PasswordReset")]
+        PasswordReset = 4,
 
         /// <summary>
         /// The ProfileUpdate policy
         /// </summary>
-        [EnumMember(Value = "b2cProfileUpdate")]
-        B2cProfileUpdate = 5,
+        [EnumMember(Value = "ProfileUpdate")]
+        ProfileUpdate = 5,
 
         /// <summary>
         /// The Resource owner policy
         /// </summary>
-        [EnumMember(Value = "b2cResourceOwnerPasswordCredentialSignIn")]
-        B2cResourceOwnerPasswordCredentialSignIn = 6,
-
-        /// <summary>
-        /// The B2X SignupOrSignIn policy
-        /// </summary>
-        [EnumMember(Value = "b2xSignUpOrSignIn")]
-        B2xSignUpOrSignIn = 7,
+        [EnumMember(Value = "ResourceOwnerPasswordCredentialSignIn")]
+        ResourceOwnerPasswordCredentialSignIn = 6,
 
         /// <summary>
         /// Marker for non-exposed types
