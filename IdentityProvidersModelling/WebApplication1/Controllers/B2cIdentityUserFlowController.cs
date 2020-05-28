@@ -46,7 +46,7 @@ namespace WebApplication1.Controllers
                     RefreshTokenLifetimeInDays = 120,
                     RollingRefreshTokenLifetimeInDays = -1,
                 },
-                UserFlowType = UserFlowType.B2cSignUpOrSignIn,
+                UserFlowType = UserFlowType.SignUpOrSignIn,
                 UserFlowTypeVersion = 1F,
                 IdentityProviders = new List<IdentityProvider>()
                 {
