@@ -84,23 +84,15 @@ namespace WebApplication1.Controllers
 
         [EnableQuery(AllowedQueryOptions = AllowedQueryOptions.Select | AllowedQueryOptions.Expand)]
         [HttpGet]
-        [ODataRoute("({id})/Microsoft.Graph.B2cIdentityUserFlow/identityProviders")]
-        [ODataRoute("({id})/Microsoft.Graph.B2xIdentityUserFlow/identityProviders")]
+        [ODataRoute("({id})/identityProviders")]
         public IQueryable<IdentityProvider> GetIdentityProviders(string id)
         {
             var u = userFlows.Where(x => x.Id.Equals(id)).Single();
-            var up =  u as B2xIdentityUserFlow;
-
-            if (up != null)
-                return up.IdentityProviders.AsQueryable();
-
-            var upc = u as B2cIdentityUserFlow;
-            return upc.IdentityProviders.AsQueryable();
+            return u.IdentityProviders.AsQueryable();
         }
 
         [HttpPost]
-        [ODataRoute("({id})/Microsoft.Graph.b2cIdentityUserFlow/identityProviders/$ref")]
-        [ODataRoute("({id})/Microsoft.Graph.b2xIdentityUserFlow/identityProviders/$ref")]
+        [ODataRoute("({id})/identityProviders/$ref")]
         public IHttpActionResult AddIdentityProviders([FromODataUri] string id, [FromBody] Uri link)
         {
             var u = userFlows.Where(x => x.Id.Equals(id)).Single();
@@ -108,9 +100,7 @@ namespace WebApplication1.Controllers
             {
                 return NotFound();
             }
-            var up = u as B2xIdentityUserFlow;
-            var upc = u as B2cIdentityUserFlow;
-
+            
             var relatedKey = Helpers.GetKeyFromUri<string>(Request, link);
             var idp = IdentityProvidersController.idps.First(X => X.Id.Equals(relatedKey));
             if (idp == null)
@@ -118,16 +108,13 @@ namespace WebApplication1.Controllers
                 return NotFound();
             }
 
-            up?.IdentityProviders.Add(idp);
-            upc?.IdentityProviders.Add(idp);
-
-
+            u.IdentityProviders.Add(idp);
+            
             return StatusCode(HttpStatusCode.NoContent);
         }
 
         [HttpDelete]
-        [ODataRoute("({id})/Microsoft.Graph.B2cIdentityUserFlow/identityProviders({identityProviderId})/$ref")]
-        [ODataRoute("({id})/Microsoft.Graph.B2xIdentityUserFlow/identityProviders({identityProviderId})/$ref")]
+        [ODataRoute("({id})/identityProviders({identityProviderId})/$ref")]
         public IHttpActionResult DeleteIdentityProviders([FromODataUri] string id, [FromODataUri] string identityProviderId)
         {
             var u = userFlows.Where(x => x.Id.Equals(id)).Single();
@@ -135,11 +122,8 @@ namespace WebApplication1.Controllers
             {
                 return NotFound();
             }
-            var up = u as B2xIdentityUserFlow;
-            var upc = u as B2cIdentityUserFlow;
-
-            up?.IdentityProviders.Remove(up?.IdentityProviders.First(x => x.Id.Equals(identityProviderId)));
-            upc?.IdentityProviders.Remove(upc?.IdentityProviders.First(x => x.Id.Equals(identityProviderId)));
+            
+            u.IdentityProviders.Remove(u.IdentityProviders.First(x => x.Id.Equals(identityProviderId)));
             
             return StatusCode(HttpStatusCode.NoContent);
         }
