@@ -9,8 +9,8 @@ namespace WebApplication1.Models
     {
         none = 0,
 
-        BuiltIn = 1,
+        builtIn = 1,
 
-        Custom = 2,
+        custom = 2,
     }
 }

@@ -181,7 +181,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\B2cAuthenticationMethods.cs" />
-    <Compile Include="Models\BuiltInUserProfileAttribute.cs" />
+    <Compile Include="Models\BuiltInUserFlowAttribute.cs" />
     <Compile Include="Models\B2cAuthenticationMethodsPolicy.cs" />
     <Compile Include="Models\CustomIdentityProvider.cs" />
     <Compile Include="Models\CustomUserFlowAttribute.cs" />
