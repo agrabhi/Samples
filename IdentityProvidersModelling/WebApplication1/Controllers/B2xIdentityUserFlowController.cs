@@ -25,7 +25,7 @@ namespace WebApplication1.Controllers
                 UserFlowTypeVersion = 1F,
                 IdentityProviders = new List<IdentityProvider>()
                 {
-                    new IdentityProvider() { Name = "MyIdp", ClientId = "sdas", ClientSecret = "****", Id = "Facebook-OAuth", Type = "Facebook" },
+                    new IdentityProvider() { Name = "MyIdp", ClientId = "clientIdFromFacebook", ClientSecret = "****", Id = "Facebook-OAuth", Type = "Facebook" },
                 },
                 UserAttributes = new List<UserFlowAttribute>()
                 {
@@ -93,7 +93,7 @@ namespace WebApplication1.Controllers
 
         [HttpPost]
         [ODataRoute]
-        public B2xIdentityUserFlow Create([FromBody] B2xIdentityUserFlow up)
+        public IHttpActionResult Create([FromBody] B2xIdentityUserFlow up)
         {
             if (up == null)
             {
@@ -106,7 +106,7 @@ namespace WebApplication1.Controllers
             }
 
             userFlows.Add(up);
-            return up;
+            return this.Created(up);
         }
 
         //[HttpPost]

@@ -50,7 +50,7 @@ namespace WebApplication1.Controllers
                 UserFlowTypeVersion = 1F,
                 IdentityProviders = new List<IdentityProvider>()
                 {
-                    new IdentityProvider() { Name = "MyIdp", ClientId = "sdas", ClientSecret = "****", Id = "Facebook-OAuth", Type = "Facebook" },
+                    new IdentityProvider() { Name = "MyIdp", ClientId = "clientIdFromFacebook", ClientSecret = "****", Id = "Facebook-OAuth", Type = "Facebook" },
                 },
                 UserAttributes = new List<UserFlowAttribute>()
                 {
