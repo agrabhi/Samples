@@ -11,31 +11,31 @@ namespace WebApplication1.Models
         /// <summary>
         /// The SignUp Policy
         /// </summary>
-        [EnumMember(Value = "SignUp")]
+        [EnumMember(Value = "signUp")]
         SignUp = 1,
 
         /// <summary>
         /// The SignIn Policy
         /// </summary>
-        [EnumMember(Value = "SignIn")]
+        [EnumMember(Value = "signIn")]
         SignIn = 2,
 
         /// <summary>
         /// The SignupOrSignIn policy
         /// </summary>
-        [EnumMember(Value = "SignUpOrSignIn")]
+        [EnumMember(Value = "signUpOrSignIn")]
         SignUpOrSignIn = 3,
 
         /// <summary>
         /// The PasswordReset policy
         /// </summary>
-        [EnumMember(Value = "PasswordReset")]
+        [EnumMember(Value = "passwordReset")]
         PasswordReset = 4,
 
         /// <summary>
         /// The ProfileUpdate policy
         /// </summary>
-        [EnumMember(Value = "ProfileUpdate")]
+        [EnumMember(Value = "profileUpdate")]
         ProfileUpdate = 5,
 
         /// <summary>
