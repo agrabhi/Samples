@@ -6,6 +6,7 @@ using System.Web;
 
 namespace WebApplication1.Models
 {
+    [DataContract(Name = "UserFlowPasswordComplexityLevel")]
     public enum UserFlowPasswordComplexityLevel
     {
         [EnumMember(Value = "simple")]

@@ -6,6 +6,7 @@ using System.Web;
 
 namespace WebApplication1.Models
 {
+    [DataContract(Name = "UserFlowSingleSignOnConfigurationScope")]
     public enum UserFlowSingleSignOnConfigurationScope
     {
         [EnumMember(Value = "tenant")]

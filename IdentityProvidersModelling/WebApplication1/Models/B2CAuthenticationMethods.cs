@@ -7,6 +7,7 @@ using System.Web;
 namespace WebApplication1.Models
 {
     [Flags]
+    [DataContract(Name = "B2cAuthenticationMethods")]
     public enum B2cAuthenticationMethods
     {
         [EnumMember(Value = "emailWithPassword")]
