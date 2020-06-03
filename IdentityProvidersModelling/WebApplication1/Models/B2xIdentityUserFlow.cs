@@ -7,7 +7,7 @@ namespace WebApplication1.Models
     public class B2xIdentityUserFlow: IdentityUserFlow
     {
         //[AutoExpand]
-        [Expand]
+        //[Expand]
         [Select]
         public ICollection<IdentityProvider> IdentityProviders { get; set; }
 
