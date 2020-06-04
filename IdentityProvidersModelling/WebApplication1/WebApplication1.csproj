@@ -175,11 +175,16 @@
     <Compile Include="Controllers\B2cAuthenticationMethodsPolicyController.cs" />
     <Compile Include="Controllers\B2xIdentityUserFlowController.cs" />
     <Compile Include="Controllers\B2cIdentityUserFlowController.cs" />
+    <Compile Include="Controllers\AuthenticationEventsConfigurationPolicyController.cs" />
     <Compile Include="Controllers\UserFlowAttributesController.cs" />
     <Compile Include="Controllers\IdentityProvidersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AuthenticationSourceFilter.cs" />
+    <Compile Include="Models\InvokableUserFlowAction.cs" />
+    <Compile Include="Models\InvokableAction.cs" />
+    <Compile Include="Models\AuthenticationEventsConfigurationPolicy.cs" />
     <Compile Include="Models\B2cAuthenticationMethods.cs" />
     <Compile Include="Models\BuiltInUserFlowAttribute.cs" />
     <Compile Include="Models\B2cAuthenticationMethodsPolicy.cs" />

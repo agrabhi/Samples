@@ -27,5 +27,8 @@ namespace WebApplication1.Models
 
         [Contained]
         public List<UserFlowAttribute> UserFlowAttributes { get; set; }
+
+        [Contained]
+        public List<AuthenticationEventsConfigurationPolicy> Events { get; set; }
     }
 }
