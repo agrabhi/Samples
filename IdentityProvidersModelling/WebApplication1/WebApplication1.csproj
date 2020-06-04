@@ -171,6 +171,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\IdentityApiConnectorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\B2cAuthenticationMethodsPolicyController.cs" />
     <Compile Include="Controllers\B2xIdentityUserFlowController.cs" />
@@ -181,6 +182,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ApiHeaderKeyValue.cs" />
+    <Compile Include="Models\BasicAuthentication.cs" />
+    <Compile Include="Models\ApiHeaderAuthentication.cs" />
+    <Compile Include="Models\ClientCertificateAuthentication.cs" />
+    <Compile Include="Models\Pkcs12Certificate.cs" />
+    <Compile Include="Models\Pkcs12CertificateInformation.cs" />
+    <Compile Include="Models\ApiAuthenticationConfigurationBase.cs" />
+    <Compile Include="Models\IdentityApiConnector.cs" />
     <Compile Include="Models\AuthenticationSourceFilter.cs" />
     <Compile Include="Models\InvokableUserFlowAction.cs" />
     <Compile Include="Models\InvokableAction.cs" />
@@ -195,6 +204,7 @@
     <Compile Include="Models\B2cIdentityUserFlow.cs" />
     <Compile Include="Models\IdentityUserFlow.cs" />
     <Compile Include="Models\IdentityProvider.cs" />
+    <Compile Include="Models\ApiParameter.cs" />
     <Compile Include="Models\UserFlowCustomPasswordComplexity.cs" />
     <Compile Include="Models\UserFlowSingleSignOnConfigurationScope.cs" />
     <Compile Include="Models\UserFlowPasswordComplexityConfiguration.cs" />

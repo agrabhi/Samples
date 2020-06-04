@@ -34,6 +34,12 @@ namespace WebApplication1
             builder.Singleton<PoliciesRoot>("policies");
             builder.Singleton<IdentityContainer>("identity");
 
+            builder.EntitySet<ApiParameter>("apiParameters");
+            builder.EntityType<IdentityApiConnector>()
+                .Collection
+                .Function("GetAllowedApiParameters")
+                .ReturnsCollection<ApiParameter>();
+
             builder.EntitySet<IdentityProvider>("identityProviders");
             config.MapODataServiceRoute(
                 routeName: "ODataRoute",

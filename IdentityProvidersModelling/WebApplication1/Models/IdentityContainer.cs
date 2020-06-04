@@ -30,5 +30,7 @@ namespace WebApplication1.Models
 
         [Contained]
         public List<AuthenticationEventsConfigurationPolicy> Events { get; set; }
+
+        public List<IdentityApiConnector> ApiConnectors { get; set; }
     }
 }
