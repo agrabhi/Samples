@@ -31,6 +31,11 @@ namespace WebApplication1.Controllers
                 {
                     new BuiltInUserFlowAttribute() { Id = "City", DisplayName = "City", DataType = UserFlowAttributeDataType.@string, Description = "your city", UserFlowAttributeType = UserFlowAttributeType.builtIn },
                     new CustomUserFlowAttribute() { Id = "extension_guid_shoeSize", DisplayName = "Shoe size", DataType = UserFlowAttributeDataType.@string, Description = "Your shoe size", UserFlowAttributeType = UserFlowAttributeType.custom },
+                },
+                ApiConnectorConfiguration = new UserFlowApiConnectorConfiguration()
+                {
+                    PostFederation = IdentityApiConnectorController.apis.First(),
+                    PostAttributeCollection = IdentityApiConnectorController.apis.Last()
                 }
             }           
         };

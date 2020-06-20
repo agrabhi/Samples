@@ -60,6 +60,11 @@ namespace WebApplication1.Controllers
                 ApplicationClaims = new List<UserFlowAttribute>()
                 {
                     new BuiltInUserFlowAttribute() { Id = "City", DisplayName = "City", DataType = UserFlowAttributeDataType.@string, Description = "your city", UserFlowAttributeType = UserFlowAttributeType.builtIn },                    
+                },
+                ApiConnectorConfiguration = new UserFlowApiConnectorConfiguration()
+                {
+                    PostFederation = IdentityApiConnectorController.apis.First(),
+                    PostAttributeCollection = IdentityApiConnectorController.apis.Last()
                 }
             }
         };

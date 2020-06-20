@@ -12,5 +12,7 @@ namespace WebApplication1.Models
         public ICollection<IdentityProvider> IdentityProviders { get; set; }
 
         public ICollection<UserFlowAttribute> UserAttributes { get; set; }
+
+        public UserFlowApiConnectorConfiguration ApiConnectorConfiguration { get; set; }
     }
 }
