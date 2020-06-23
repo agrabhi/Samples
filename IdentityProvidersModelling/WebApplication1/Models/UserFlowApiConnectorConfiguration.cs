@@ -8,10 +8,8 @@ namespace WebApplication1.Models
 {
     public class UserFlowApiConnectorConfiguration
     {
-        [Contained]
         public IdentityApiConnector PostFederation { get; set; }
 
-        [Contained]
         public IdentityApiConnector PostAttributeCollection { get; set; }
     }
 }
