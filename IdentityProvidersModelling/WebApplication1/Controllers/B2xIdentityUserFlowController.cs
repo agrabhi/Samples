@@ -152,7 +152,7 @@ namespace WebApplication1.Controllers
         public void PatchApiConnectorConfigurationPostFederation(string id, [FromBody] IdentityApiConnector api)
         {
             var original = userFlows.Where(x => x.Id.Equals(id, StringComparison.OrdinalIgnoreCase)).Single();
-            var apiInstance = IdentityApiConnectorController.apis.Where(x => x.Id.Equals(api.Id, StringComparison.OrdinalIgnoreCase)).Single();
+            var apiInstance = api == null ? api : IdentityApiConnectorController.apis.Where(x => x.Id.Equals(api.Id, StringComparison.OrdinalIgnoreCase)).Single();
             original.ApiConnectorConfiguration.PostFederation = apiInstance;
         }
 
@@ -161,7 +161,7 @@ namespace WebApplication1.Controllers
         public void PatchApiConnectorConfigurationPostAttributeCollection(string id, [FromBody] IdentityApiConnector api)
         {
             var original = userFlows.Where(x => x.Id.Equals(id, StringComparison.OrdinalIgnoreCase)).Single();
-            var apiInstance = IdentityApiConnectorController.apis.Where(x => x.Id.Equals(api.Id, StringComparison.OrdinalIgnoreCase)).Single();
+            var apiInstance = api == null ? api : IdentityApiConnectorController.apis.Where(x => x.Id.Equals(api.Id, StringComparison.OrdinalIgnoreCase)).Single();
             original.ApiConnectorConfiguration.PostFederation = apiInstance;
         }
     }
