@@ -37,6 +37,25 @@ namespace WebApplication1.Controllers
                     new ApiParameter() { Id = "City" },
                     new ApiParameter() { Id = "extension_guid_shoeSize" }
                 }
+            },
+            new IdentityApiConnector()
+            {
+                Id = "40CC1B82-E529-4B7D-A991-80FFF2253036",
+                DisplayName = "API#2",
+                TargetUrl = "https://jwt.ms",
+                AuthenticationConfiguration = new BasicAuthentication()
+                {
+                    Username = "user",
+                    Password = "pass"
+                },
+                RequestParameters = new List<ApiParameter>()
+                {
+                    new ApiParameter() { Id = "City" }
+                },
+                ResponseParameters = new List<ApiParameter>()
+                {
+                    new ApiParameter() { Id = "City" }
+                }
             }
         };
 

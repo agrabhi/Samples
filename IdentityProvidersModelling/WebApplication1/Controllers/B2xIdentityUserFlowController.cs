@@ -31,6 +31,11 @@ namespace WebApplication1.Controllers
                 {
                     new BuiltInUserFlowAttribute() { Id = "City", DisplayName = "City", DataType = UserFlowAttributeDataType.@string, Description = "your city", UserFlowAttributeType = UserFlowAttributeType.builtIn },
                     new CustomUserFlowAttribute() { Id = "extension_guid_shoeSize", DisplayName = "Shoe size", DataType = UserFlowAttributeDataType.@string, Description = "Your shoe size", UserFlowAttributeType = UserFlowAttributeType.custom },
+                },
+                ApiConnectorConfiguration = new UserFlowApiConnectorConfiguration()
+                {
+                    PostFederation = IdentityApiConnectorController.apis.First(),
+                    PostAttributeCollection = IdentityApiConnectorController.apis.Last()
                 }
             }           
         };
@@ -133,5 +138,31 @@ namespace WebApplication1.Controllers
             return original;
         }
 
+        [EnableQuery(AllowedQueryOptions = AllowedQueryOptions.Select | AllowedQueryOptions.Expand)]
+        [HttpGet]
+        [ODataRoute("({id})/apiConnectorConfiguration")]
+        public SingleResult<UserFlowApiConnectorConfiguration> GetApiConnectorConfiguration(string id)
+        {
+            var u = userFlows.Where(x => x.Id.Equals(id)).Single();
+            return SingleResult.Create(new[] { u.ApiConnectorConfiguration }.AsQueryable());
+        }
+
+        [HttpPut]
+        [ODataRoute("({id})/apiConnectorConfiguration/postFederation/$ref")]
+        public void PatchApiConnectorConfigurationPostFederation(string id, [FromBody] IdentityApiConnector api)
+        {
+            var original = userFlows.Where(x => x.Id.Equals(id, StringComparison.OrdinalIgnoreCase)).Single();
+            var apiInstance = api == null ? api : IdentityApiConnectorController.apis.Where(x => x.Id.Equals(api.Id, StringComparison.OrdinalIgnoreCase)).Single();
+            original.ApiConnectorConfiguration.PostFederation = apiInstance;
+        }
+
+        [HttpPut]
+        [ODataRoute("({id})/apiConnectorConfiguration/postAttributeCollection/$ref")]
+        public void PatchApiConnectorConfigurationPostAttributeCollection(string id, [FromBody] IdentityApiConnector api)
+        {
+            var original = userFlows.Where(x => x.Id.Equals(id, StringComparison.OrdinalIgnoreCase)).Single();
+            var apiInstance = api == null ? api : IdentityApiConnectorController.apis.Where(x => x.Id.Equals(api.Id, StringComparison.OrdinalIgnoreCase)).Single();
+            original.ApiConnectorConfiguration.PostFederation = apiInstance;
+        }
     }
 }

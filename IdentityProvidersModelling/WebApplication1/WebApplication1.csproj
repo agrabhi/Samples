@@ -210,6 +210,7 @@
     <Compile Include="Models\UserFlowPasswordComplexityConfiguration.cs" />
     <Compile Include="Models\PoliciesRoot.cs" />
     <Compile Include="Models\PolicyBase.cs" />
+    <Compile Include="Models\UserFlowApiConnectorConfiguration.cs" />
     <Compile Include="Models\UserFlowSingleSignOnSessionConfiguration.cs" />
     <Compile Include="Models\UserFlowTokenClaimsConfiguration.cs" />
     <Compile Include="Models\UserFlowTokenLifetimeConfiguration.cs" />

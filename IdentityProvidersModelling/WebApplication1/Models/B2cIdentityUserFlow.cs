@@ -21,5 +21,7 @@ namespace WebApplication1.Models
         public ICollection<UserFlowAttribute> UserAttributes { get; set; }
 
         public ICollection<UserFlowAttribute> ApplicationClaims { get; set; }
+
+        public UserFlowApiConnectorConfiguration ApiConnectorConfiguration { get; set; }
     }
 }
